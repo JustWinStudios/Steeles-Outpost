@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class gameManager : MonoBehaviour
+public class _DeathManager : MonoBehaviour
 {
-    public static gameManager instance; // Singleton instance
+    public static _DeathManager instance; // Singleton instance
 
     public GameObject gameOverPanel; // Assign through Inspector
     public GameObject player;        // Reference to the player GameObject
@@ -22,16 +22,6 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        InitializeGame();
-    }
-
-    void InitializeGame()
-    {
-        // Any initialization logic you need when the game starts
-    }
-
     public void LoseGame()
     {
         Debug.Log("Player defeated");
@@ -43,17 +33,4 @@ public class gameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Restart current scene
     }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quit Game");
-        Application.Quit(); // Quit the game
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName); // Load a specific scene
-    }
-
-    // Add any other universal game management functionalities you might need
 }

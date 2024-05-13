@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Wave_EnemyTracker : MonoBehaviour
 {
-    // put this on your enemy prefabs. You could just copy the on destroy onto a pre-existing script if you want.
+    // Make sure you provide your Spawn Manager the "Spawn_Wave" Tag to make this work.
+    // Put this on enemy prefabs.
     void OnDestroy()
     {
         if (GameObject.FindGameObjectWithTag("Spawn_Wave") != null)

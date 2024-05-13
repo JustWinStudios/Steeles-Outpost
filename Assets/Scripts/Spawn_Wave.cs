@@ -10,8 +10,8 @@ public class Spawn_Wave : MonoBehaviour
     [Header("Wave Counter and Rate")]
     [Tooltip("Current Wave Number")]
     public int currentWave;
-    [Tooltip("Wave's Enemy Spawning Power")]
-    private int waveValue;
+    [Tooltip("Wave's Enemy Spawning Power. DON'T CHANGE")]
+    [SerializeField] private int waveValue;
     [Tooltip("The amount of increase in Spawning Power per round. It takes the current wave number and multiplies it by the rate of increase to decide what the next wave's spawning power is.")]
     [SerializeField] private int rateOfIncrease;
 

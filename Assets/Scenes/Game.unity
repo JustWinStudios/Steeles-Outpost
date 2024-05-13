@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 1112765822}
   m_Layer: 0
   m_Name: Wave Manager
-  m_TagString: Untagged
+  m_TagString: Spawn_Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,7 +548,10 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 7440287315650158819, guid: 3219f5b6a6130c24dbc27e772190172a, type: 3}
     cost: 1
+  - enemyPrefab: {fileID: 3119926227314594344, guid: 431d1db85f104084f9b6afae89082e96, type: 3}
+    cost: 3
   currentWave: 0
+  waveValue: 0
   rateOfIncrease: 5
   enemiesToSpawn: []
   spawnLocation:

@@ -10,8 +10,10 @@ public class Spawn_Wave : MonoBehaviour
     [Header("Wave Counter and Rate")]
     [Tooltip("Current Wave Number")]
     public int currentWave;
-    [Tooltip("Wave's Enemey Spawn Value")]
+    [Tooltip("Wave's Enemy Spawning Power")]
     private int waveValue;
+    [Tooltip("The amount of increase in Spawning Power per round. It takes the current wave number and multiplies it by the rate of increase to decide what the next wave's spawning power is.")]
+    [SerializeField] private int rateOfIncrease;
 
     [Header("Enemies Being Spawned This Wave")]
     [Tooltip("Amount and Type of enemies the game will spawn for this current round. DON'T TOUCH")]
@@ -77,7 +79,7 @@ public class Spawn_Wave : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currentWave * 10;
+        waveValue = currentWave * rateOfIncrease;
         GenerateEnemies();
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies

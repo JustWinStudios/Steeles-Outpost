@@ -8,6 +8,15 @@ public class Player_Weapon : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] private Transform weapon;
     [SerializeField] private float offset;
+
+    [Header("Weapon Information")]
+    [SerializeField] private Transform shootPoint;
+    [SerializeField] private GameObject projectile;
+
+    [Header("Shooting Information")]
+    [SerializeField] private float fireRate;
+    float nextShotTime;
+
     #endregion
 
     #region Tick

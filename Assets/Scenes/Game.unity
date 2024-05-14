@@ -1302,3 +1302,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2184249283915552126, guid: 16a901ca2aef53147870be6a2d8f1da4, type: 3}
   m_PrefabInstance: {fileID: 2184249284781106794}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &2184249284781106797 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2184249283915552120, guid: 16a901ca2aef53147870be6a2d8f1da4, type: 3}
+  m_PrefabInstance: {fileID: 2184249284781106794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2184249284781106799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291285263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b2f59e0d3e7304781bc4671d315c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 100
+  _rigidbody: {fileID: 2184249284781106797}

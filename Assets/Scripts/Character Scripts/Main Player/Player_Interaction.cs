@@ -6,11 +6,11 @@ public class Player_Interaction : MonoBehaviour
 {
     #region Editor Data
     [Header("Interaction Settings")]
-    [SerializeField] private float interactionRange = 2.0f;
     [SerializeField] private LayerMask interactableLayer;
 
     [Header("Dependencies")]
     [SerializeField] private Transform interactionPoint;
+    [SerializeField] private InteractionRange interactionRange;
 
     private Camera mainCamera;
     #endregion
@@ -26,6 +26,12 @@ public class Player_Interaction : MonoBehaviour
         {
             interactionPoint = transform;
         }
+
+        // Ensure the interaction range is assigned:
+        if (interactionRange == null)
+        {
+            interactionRange = interactionPoint.GetComponent<InteractionRange>();
+        }
     }
 
     private void Update()
@@ -37,8 +43,12 @@ public class Player_Interaction : MonoBehaviour
     {
         // Draw the interaction range in the editor for visualization
         if (interactionPoint == null) return;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
+        CircleCollider2D collider = interactionPoint.GetComponent<CircleCollider2D>();
+        if (collider != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(interactionPoint.position, collider.radius);
+        }
     }
     #endregion
 
@@ -47,27 +57,14 @@ public class Player_Interaction : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Left mouse button for interaction
         {
-            // Convert mouse position to a ray
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            // Perform raycast from the interaction point in the direction of the ray
-            RaycastHit2D hit = Physics2D.Raycast(interactionPoint.position, ray.direction, interactionRange, interactableLayer);
-
-            Debug.DrawRay(interactionPoint.position, ray.direction * interactionRange, Color.red, 1f);
-
-            if (hit.collider != null)
+            foreach (var collider in interactionRange.interactableObjects)
             {
-                Debug.Log($"Hit: {hit.collider.name}");
-
-                // Check if the hit object has an IInteractable component
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                IInteractable interactable = collider.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
                     interactable.Interact();
+                    break; // Interact with the first valid interactable object found
                 }
-            }
-            else
-            {
-                Debug.Log("No interactable object hit.");
             }
         }
     }

@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceNode : MonoBehaviour
+public class ResourceNode : MonoBehaviour, IInteractable
 {
     #region Editor Data
     [Header("Resource Settings")]
-    [Tooltip("This is the amount the resource gives you when interacted with")]
     [SerializeField] private int resourceAmount = 10;
-    [Tooltip("Change this to the name of the game object being collected/interacted with")]
-    [SerializeField] private string resourceType = "NULL";
+    [SerializeField] private string resourceType = "Wood"; // Example resource type
     #endregion
 
-    #region Resource Collection Logic
-
+    #region Resource Logic
     public void Interact()
     {
         CollectResource();
@@ -22,11 +19,11 @@ public class ResourceNode : MonoBehaviour
     private void CollectResource()
     {
         Debug.Log($"Collected {resourceAmount} {resourceType}");
+        // Implement resource collection logic here (e.g., add to player inventory)
 
-        //Implement Resource Collection Logic here
-
-        //Destroy resource game object after collection
+        // Destroy the resource node after collection
         Destroy(gameObject);
+        Debug.Log("Resource node destroyed.");
     }
     #endregion
 }

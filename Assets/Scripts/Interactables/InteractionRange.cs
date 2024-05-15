@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class InteractionRange : MonoBehaviour
@@ -9,7 +8,10 @@ public class InteractionRange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        interactableObjects.Add(other);
+        if (other.CompareTag("Interactable"))
+        {
+            interactableObjects.Add(other);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -18,5 +20,10 @@ public class InteractionRange : MonoBehaviour
         {
             interactableObjects.Remove(other);
         }
+    }
+
+    public void RemoveDestroyedObjects()
+    {
+        interactableObjects.RemoveAll(item => item == null);
     }
 }

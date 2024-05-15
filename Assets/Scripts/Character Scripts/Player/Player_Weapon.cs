@@ -14,15 +14,16 @@ public class Player_Weapon : MonoBehaviour
     [SerializeField] private GameObject projectile;
 
     [Header("Shooting Information")]
-    [SerializeField] private float fireRate;
+    [SerializeField] private float timeBetweenShots;
     float nextShotTime;
 
     #endregion
 
     #region Tick
-    private void Update()
+    private void FixedUpdate()
     {
         WeaponRotation();
+        WeaponFire();
     }
     #endregion
 
@@ -35,6 +36,22 @@ public class Player_Weapon : MonoBehaviour
         float angle = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
 
         weapon.rotation = Quaternion.Euler(0f, 0f, angle + offset);
+    }
+    #endregion
+
+    #region Weapon Shooting Logic
+    private void WeaponFire()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Time.time > nextShotTime)
+            {
+                nextShotTime = Time.time + timeBetweenShots;
+
+                //Spawn Projectile:
+                Instantiate(projectile, shootPoint.position, shootPoint.rotation);
+            }
+        }
     }
     #endregion
 }

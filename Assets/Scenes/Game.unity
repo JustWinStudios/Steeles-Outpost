@@ -1258,8 +1258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a265ce15117b45bbd9f6d2351d8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 2
+  interactionRange: 1.5
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
-  interactionPoint: {fileID: 0}
+  interactionPoint: {fileID: 1792834561}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7209583364769207510}
   - component: {fileID: 1119818738242597235}
   - component: {fileID: 2737674184715260780}
+  - component: {fileID: 142447725839200448}
   m_Layer: 6
   m_Name: Projectile
   m_TagString: Projectile
@@ -95,7 +96,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3119926227314594344}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -146,3 +147,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e62b3bfbe862b47b5a6b1e71ebe6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &142447725839200448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119926227314594344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d156a52e41915643acaddbf8c1fac49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmount: 1
+  resourceType: Wood

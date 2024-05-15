@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5136658659965269014}
   - component: {fileID: 888110642582133185}
   - component: {fileID: -7463090656636709166}
+  - component: {fileID: 3799088426374811467}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -148,3 +149,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e62b3bfbe862b47b5a6b1e71ebe6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3799088426374811467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440287315650158819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d156a52e41915643acaddbf8c1fac49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmount: 1
+  resourceType: Stone

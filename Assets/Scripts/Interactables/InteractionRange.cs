@@ -8,7 +8,7 @@ public class InteractionRange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("ResourceNode")) 
         {
             interactableObjects.Add(other);
         }
@@ -16,7 +16,7 @@ public class InteractionRange : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("ResourceNode")) 
         {
             interactableObjects.Remove(other);
         }

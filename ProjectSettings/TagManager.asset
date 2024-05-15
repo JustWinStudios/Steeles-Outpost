@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Spawn_Wave
   - Weapon
+  - ResourceNode
   layers:
   - Default
   - TransparentFX

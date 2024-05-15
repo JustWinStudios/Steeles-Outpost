@@ -20,7 +20,7 @@ public class Player_Weapon : MonoBehaviour
     #endregion
 
     #region Tick
-    private void FixedUpdate()
+    private void Update()
     {
         WeaponRotation();
         WeaponFire();

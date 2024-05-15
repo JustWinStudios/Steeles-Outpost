@@ -66,6 +66,7 @@ public class Player_Interaction : MonoBehaviour
                     break; // Interact with the first valid interactable object found
                 }
             }
+            interactionRange.RemoveDestroyedObjects(); // Clean up the list
         }
     }
     #endregion

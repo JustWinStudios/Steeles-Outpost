@@ -26,7 +26,7 @@ public class Player_Weapon : MonoBehaviour
         WeaponFire();
     }
     #endregion
-
+    
     #region Weapon Rotation Logic
     private void WeaponRotation()
     {

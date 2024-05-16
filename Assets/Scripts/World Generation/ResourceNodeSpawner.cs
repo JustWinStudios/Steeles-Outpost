@@ -20,6 +20,10 @@ public class ResourceNodeSpawner : MonoBehaviour
     #region Unity Callbacks
     private void Start()
     {
+        //Initial Spawn
+        SpawnResourceNodes();
+
+        //Set the timer for the next spawn interval
         nextSpawnTime = Time.time + spawnInterval;
     }
 

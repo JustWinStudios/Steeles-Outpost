@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     #region Editor Data
     [Header("Movement Settings")]
@@ -18,7 +18,11 @@ public class Player_Movement : MonoBehaviour
     #region Unity Callbacks
     private void Awake()
     {
-        if (rb == null) { rb = GetComponent<Rigidbody2D>(); }   
+        // Ensure the Rigidbody2D component is assigned
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
     }
 
     private void Update()
@@ -35,13 +39,18 @@ public class Player_Movement : MonoBehaviour
     #region Movement Logic
     private void ProcessInput()
     {
-        moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        moveVelocity = moveInput.normalized * moveSpeed;
+        // Get movement input
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveInput = new Vector2(moveX, moveY).normalized;
+        moveVelocity = moveInput * moveSpeed;
     }
 
     private void Move()
     {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        // Apply movement
+        rb.velocity = moveVelocity;
     }
     #endregion
 }

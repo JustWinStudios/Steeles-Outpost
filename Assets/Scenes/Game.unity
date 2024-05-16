@@ -1155,6 +1155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871444208}
     m_Modifications:
+    - target: {fileID: 699726208, guid: 16a901ca2aef53147870be6a2d8f1da4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 2184249283915552101, guid: 16a901ca2aef53147870be6a2d8f1da4, type: 3}
       propertyPath: m_Name
       value: D. Steele

@@ -6,8 +6,8 @@ public class ResourceNode : MonoBehaviour, IInteractable
 {
     #region Editor Data
     [Header("Resource Settings")]
+    [SerializeField] private int resourceIndex; // Index to select the resource from InventoryManager
     [SerializeField] private int resourceAmount = 10;
-    [SerializeField] private string resourceType = "Wood"; // Example resource type
     #endregion
 
     #region Resource Logic
@@ -18,12 +18,20 @@ public class ResourceNode : MonoBehaviour, IInteractable
 
     private void CollectResource()
     {
-        Debug.Log($"Collected {resourceAmount} {resourceType}");
-        // Implement resource collection logic here (e.g., add to player inventory)
+        if (InventoryManager.Instance.resources.Count > resourceIndex)
+        {
+            string resourceName = InventoryManager.Instance.resources[resourceIndex].resourceName;
+            Debug.Log($"Collected {resourceAmount} {resourceName}");
+            InventoryManager.Instance.AddResource(resourceName, resourceAmount);
 
-        // Destroy the resource node after collection
-        Destroy(gameObject);
-        Debug.Log("Resource node destroyed.");
+            // Destroy the resource node after collection
+            Destroy(gameObject);
+            Debug.Log("Resource node destroyed.");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid resource index.");
+        }
     }
     #endregion
 }

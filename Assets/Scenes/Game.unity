@@ -632,8 +632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5de25d18f944f84f877aaee0382b129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcePrefabs:
-  - {fileID: 7738326411820247471, guid: 29c2a7173da8931499a881c708cf7bf3, type: 3}
+  resourceNodes:
+  - prefab: {fileID: 7738326411820247471, guid: 29c2a7173da8931499a881c708cf7bf3, type: 3}
+    spawnProbability: 1
   maxResourceNodes: 50
   spawnInterval: 30
   spawnAreaMin: {x: 30, y: 20}
@@ -1243,4 +1244,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   interactionPoint: {fileID: 1792834561}
-  interactionRange: {fileID: 0}
+  interactionRange: {fileID: 1792834563}

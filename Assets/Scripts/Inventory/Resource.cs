@@ -1,18 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+#region Unity Data
+[System.Serializable]
+public class Resource 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string resourceName;
+    public Sprite icon;
+    public int amount;
+    public List<CraftableItem> craftableItems;
 }
+#endregion
+
+#region Craftable Item Information
+[System.Serializable]
+public class CraftableItem
+{
+    public string itemName;
+    public List<ResourceRequirement> requirements;
+}
+#endregion
+
+#region Resource Requirements
+[System.Serializable]
+public class ResourceRequirement
+{
+    public string resourceName;
+    public int amount;
+}
+#endregion

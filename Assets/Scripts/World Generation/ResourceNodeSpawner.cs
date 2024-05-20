@@ -16,7 +16,6 @@ public class ResourceNodeSpawner : MonoBehaviour
 
     private float nextSpawnTime;
     private int totalSpawnProbability;
-
     #endregion
 
     #region Unity Callbacks
@@ -70,7 +69,6 @@ public class ResourceNodeSpawner : MonoBehaviour
                 Instantiate(resourceToSpawn, spawnPosition, Quaternion.identity);
             }
         }
-        Debug.Log("Spawned Successfully!");
     }
 
     private GameObject SelectResource()

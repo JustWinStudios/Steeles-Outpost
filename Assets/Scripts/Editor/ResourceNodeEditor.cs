@@ -15,7 +15,7 @@ public class ResourceNodeEditor : Editor
             InventoryManager.Instance = FindObjectOfType<InventoryManager>();
         }
 #endif
-
+        // I WANT YOU TO LOOK AT THIS CODE AND FALL IN LOVE WITH IT
         if (InventoryManager.Instance != null && InventoryManager.Instance.resources.Count > 0)
         {
             List<string> resourceNames = new List<string>();

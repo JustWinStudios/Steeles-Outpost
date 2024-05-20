@@ -68,9 +68,9 @@ public class ResourceNodeSpawner : MonoBehaviour
             if (resourceToSpawn != null)
             {
                 Instantiate(resourceToSpawn, spawnPosition, Quaternion.identity);
-                Debug.Log("Spawned Successfully!");
             }
         }
+        Debug.Log("Spawned Successfully!");
     }
 
     private GameObject SelectResource()

@@ -635,6 +635,8 @@ MonoBehaviour:
   resourceNodes:
   - prefab: {fileID: 7738326411820247471, guid: 29c2a7173da8931499a881c708cf7bf3, type: 3}
     spawnProbability: 1
+  - prefab: {fileID: 5115034370364218112, guid: 94f6569106b71cc4cb984b9f7277b20d, type: 3}
+    spawnProbability: 1
   maxResourceNodes: 50
   spawnInterval: 30
   spawnAreaMin: {x: 30, y: 20}

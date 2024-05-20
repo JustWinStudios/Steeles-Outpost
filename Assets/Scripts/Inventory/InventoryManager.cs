@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -18,12 +19,24 @@ public class InventoryManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
         }
     }
+
+    #if UNITY_EDITOR
+    [InitializeOnLoadMethod]
+    private static void InitializeOnLoad()
+    {
+        Instance = FindObjectOfType<InventoryManager>();
+        if (Instance == null)
+        {
+            GameObject inventoryManager = new GameObject("InventoryManager");
+            Instance = inventoryManager.AddComponent<InventoryManager>();
+        }
+    }
+    #endif
     #endregion
 
     #region Inventory Management Logic

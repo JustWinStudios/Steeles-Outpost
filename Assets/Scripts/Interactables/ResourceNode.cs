@@ -6,8 +6,8 @@ public class ResourceNode : MonoBehaviour, IInteractable
 {
     #region Editor Data
     [Header("Resource Settings")]
-    [SerializeField] private int resourceIndex; // Index to select the resource from InventoryManager
-    [SerializeField] private int resourceAmount = 10;
+    [SerializeField] public int resourceIndex; // Index to select the resource from InventoryManager
+    [SerializeField] public int resourceAmount = 10;
     #endregion
 
     #region Resource Logic

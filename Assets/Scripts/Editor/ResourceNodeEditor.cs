@@ -9,6 +9,13 @@ public class ResourceNodeEditor : Editor
     {
         ResourceNode resourceNode = (ResourceNode)target;
 
+#if UNITY_EDITOR
+        if (!EditorApplication.isPlaying)
+        {
+            InventoryManager.Instance = FindObjectOfType<InventoryManager>();
+        }
+#endif
+
         if (InventoryManager.Instance != null && InventoryManager.Instance.resources.Count > 0)
         {
             List<string> resourceNames = new List<string>();

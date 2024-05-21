@@ -24,39 +24,59 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
-    #if UNITY_EDITOR
+    #region Custom Editor Logic
+#if UNITY_EDITOR
     [InitializeOnLoadMethod]
     private static void InitializeOnLoad()
     {
-        Instance = FindObjectOfType<InventoryManager>();
-        if (Instance == null)
-        {
-            GameObject inventoryManager = new GameObject("InventoryManager");
-            Instance = inventoryManager.AddComponent<InventoryManager>();
-        }
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        EnsureInventoryManagerExists();
     }
 
     private static void OnPlayModeStateChanged(PlayModeStateChange state)
     {
         if (state == PlayModeStateChange.EnteredEditMode || state == PlayModeStateChange.ExitingEditMode)
         {
+            EnsureInventoryManagerExists();
+        }
+    }
+
+    private static void EnsureInventoryManagerExists()
+    {
+        if (Instance == null)
+        {
+            Instance = FindObjectOfType<InventoryManager>();
             if (Instance == null)
             {
-                Instance = FindObjectOfType<InventoryManager>();
-                if (Instance == null)
-                {
-                    GameObject inventoryManager = new GameObject("InventoryManager");
-                    Instance = inventoryManager.AddComponent<InventoryManager>();
-                    Instance.InitializeResources();
-                }
+                GameObject inventoryManager = new GameObject("InventoryManager");
+                Instance = inventoryManager.AddComponent<InventoryManager>();
+                Instance.InitializeResources();
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (!Application.isPlaying && Instance == this)
+        {
+            Instance = null;
         }
     }
 
     private void InitializeResources()
     {
-
+        // Initialize default resources if needed
+        // For example, add some default resources to the list
+        if (resources == null || resources.Count == 0)
+        {
+            resources = new List<Resource>
+            {
+                new Resource { resourceName = "Wood", icon = null, amount = 0 },
+                new Resource { resourceName = "Stone", icon = null, amount = 0 }
+            };
+        }
     }
     #endif
     #endregion

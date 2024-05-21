@@ -36,6 +36,28 @@ public class InventoryManager : MonoBehaviour
             Instance = inventoryManager.AddComponent<InventoryManager>();
         }
     }
+
+    private static void OnPlayModeStateChanged(PlayModeStateChange state)
+    {
+        if (state == PlayModeStateChange.EnteredEditMode || state == PlayModeStateChange.ExitingEditMode)
+        {
+            if (Instance == null)
+            {
+                Instance = FindObjectOfType<InventoryManager>();
+                if (Instance == null)
+                {
+                    GameObject inventoryManager = new GameObject("InventoryManager");
+                    Instance = inventoryManager.AddComponent<InventoryManager>();
+                    Instance.InitializeResources();
+                }
+            }
+        }
+    }
+
+    private void InitializeResources()
+    {
+
+    }
     #endif
     #endregion
 

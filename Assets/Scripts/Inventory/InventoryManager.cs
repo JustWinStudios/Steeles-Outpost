@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Resources")]
     public List<Resource> resources;
+
+    // The name of the game world scene where the InventoryManager should be initialized
+    private const string GameWorldSceneName = "Game";
     #endregion
 
     #region Unity Callbacks
@@ -27,7 +31,7 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     #region Custom Editor Logic
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     [InitializeOnLoadMethod]
     private static void InitializeOnLoad()
     {
@@ -45,7 +49,7 @@ public class InventoryManager : MonoBehaviour
 
     private static void EnsureInventoryManagerExists()
     {
-        if (Instance == null)
+        if (Instance == null && SceneManager.GetActiveScene().name == GameWorldSceneName)
         {
             Instance = FindObjectOfType<InventoryManager>();
             if (Instance == null)
@@ -78,7 +82,7 @@ public class InventoryManager : MonoBehaviour
             };
         }
     }
-    #endif
+#endif
     #endregion
 
     #region Inventory Management Logic
